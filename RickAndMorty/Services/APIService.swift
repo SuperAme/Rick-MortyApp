@@ -24,8 +24,8 @@ class APIService: APIServiceProtocol {
             } else if let data = data {
                 let decoder = JSONDecoder()
                 do {
-                    let breeds = try decoder.decode([CharacterResponse].self, from: data)
-                    completion(Result.success(breeds))
+                    let characters = try decoder.decode([CharacterResponse].self, from: data)
+                    completion(Result.success(characters))
                 } catch {
                     completion(Result.failure(APIError.parseError(error as? DecodingError)))
                 }
