@@ -18,5 +18,5 @@ An iOS project based on Rick and Morty cartoon.
 4. Enjoy!
 
 # Architecture
-* The Rick and Morty project is implemented using the <strong>Model-View-ViewModel (MVVM)</strong> with <strong>Clean architecture pattern</strong>.
+* The Rick and Morty project is implemented using the <strong>Model-View-ViewModel (MVVM) </strong> pattern.
 

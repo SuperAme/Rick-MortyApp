@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var characterFetcher = CharactersViewModel()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if characterFetcher.isLoading {
+            LoadingView()
+        } else if characterFetcher.errorMessage != nil {
+            ErrorView(characterFetcher: characterFetcher)
+        } else {
+            HomeView(characters: characterFetcher.characters)
         }
-        .padding()
-    }
-}
+    }}
 
 #Preview {
     ContentView()

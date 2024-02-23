@@ -8,7 +8,7 @@
 import Foundation
 
 class APIService: APIServiceProtocol {
-    func getAllCharacters(url: URL?, completion: @escaping (Result<[CharacterResponse], APIError>) -> Void) {
+    func getAllCharacters(url: URL?, completion: @escaping (Result<CharacterListResponse, APIError>) -> Void) {
         guard let url = url else {
             let error = APIError.badURL
             completion(Result.failure(error))
@@ -24,7 +24,7 @@ class APIService: APIServiceProtocol {
             } else if let data = data {
                 let decoder = JSONDecoder()
                 do {
-                    let characters = try decoder.decode([CharacterResponse].self, from: data)
+                    let characters = try decoder.decode(CharacterListResponse.self, from: data)
                     completion(Result.success(characters))
                 } catch {
                     completion(Result.failure(APIError.parseError(error as? DecodingError)))

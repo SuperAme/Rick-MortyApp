@@ -8,5 +8,5 @@
 import Foundation
 
 protocol APIServiceProtocol {
-    func getAllCharacters(url: URL?, completion: @escaping(Result<[CharacterResponse], APIError>) -> Void)
+    func getAllCharacters(url: URL?, completion: @escaping(Result<CharacterListResponse, APIError>) -> Void)
 }
